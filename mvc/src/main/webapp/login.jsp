@@ -18,7 +18,7 @@ if( errMsg!=null ) { %>
 用户名<input type="text" name="username"><br/>
 密码<input type="password" name="password"><br/>
 <input type="submit" value="登录">
-<input type="reset" value="重填">
+<input type="reset" value="重填mmmmmmm">
 </form> 
 
 </body>
