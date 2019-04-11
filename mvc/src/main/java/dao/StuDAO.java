@@ -1,0 +1,166 @@
+package dao; 
+import java.sql.*;
+import java.util.*;
+import beans.Stu;
+public class StuDAO {
+public static final String DRIVER="org.gjt.mm.mysql.Driver";
+public static final String DBURL="jdbc:mysql://localhost:3306/lab";
+public static final String DBUSER="root";
+public static final String DBPASS="xys9811xc98923";
+//private static final Stu  = null;
+private Connection conn=null;
+private PreparedStatement pStat=null;
+private ResultSet rs=null;
+public Connection getConnectionn(){
+try{
+Class.forName(DRIVER).newInstance();
+return DriverManager.getConnection(DBURL,DBUSER,DBPASS);
+}catch(Exception e){
+return null;
+}
+}
+public void close(){
+try{
+if( rs!=null ) rs.close();
+if( pStat!=null ) pStat.close();
+if( conn!=null ) conn.close();
+}catch(Exception e){ e.printStackTrace(); }
+} //end close
+public boolean isStuidExists(int id) {
+	conn=getConnectionn();
+	try {
+	pStat =conn.prepareStatement("select * from students where stu_id=?");
+	pStat.setInt(1, id);
+	rs=pStat.executeQuery();
+	if( rs.next() ) return true;
+	else return false;
+	}catch (Exception e) { return false; }
+	finally{ close(); }
+} //end isUsernameExists
+
+public boolean findStu(int stu_id, String stu_password){
+	conn=getConnectionn();
+	try {
+	pStat =conn.prepareStatement("select * from students where stu_id=? and stu_password=?");
+	pStat.setInt(1, stu_id);
+	pStat.setString(2, stu_password);
+	rs=pStat.executeQuery();
+	if( rs.next() ) return true;
+	else return false;
+	}
+	catch (Exception e) { return false; }
+	finally{
+	close();
+	}
+} //end findUser
+
+public boolean addStu(Stu stu) {
+	conn=getConnectionn();
+	try {
+	pStat=conn.prepareStatement("insert into students values(?,?,?,?,?,?)");
+	pStat.setInt(1, stu.getStu_id());
+	pStat.setString(2, stu.getStu_name());
+	pStat.setString(3, stu.getStu_password());
+	pStat.setString(4, stu.getStu_major());
+	pStat.setInt(5, stu.getStu_grade());
+	pStat.setInt(6, stu.getStu_class());
+	int cnt=pStat.executeUpdate();
+	if(cnt>0) return true;
+	else return false;
+	}
+	catch (Exception e) { return false; }
+	finally{
+	close();
+	}
+	} //end add
+
+public List<Stu> getAllStus() {
+	List<Stu> tmp_list = new ArrayList<Stu>();    // 结果集存放在List集合中
+	conn = getConnectionn();
+	try {
+		pStat = conn.prepareStatement("select * from students where 1");
+		rs = pStat.executeQuery();
+		while (rs.next()) {
+			int stu_id = rs.getInt("stu_id");
+			String stu_name = rs.getString("stu_name");
+			String stu_password = rs.getString("stu_password");
+			String stu_major= rs.getString("stu_major");
+			int stu_grade = rs.getInt("stu_grade");
+			int stu_class = rs.getInt("stu_class");
+			tmp_list.add(new Stu(stu_id, stu_name, stu_password, stu_major, stu_grade, stu_class));
+		}
+		return tmp_list;
+	} catch (Exception e) {
+		return null;
+	} finally {
+		close();
+	}
+}
+
+
+public boolean delStuById(int id) {
+	conn = getConnectionn();
+	try {
+		pStat = conn.prepareStatement("delete from students where stu_id=?");
+		pStat.setInt(1, id);
+		int cnt= pStat.executeUpdate();	
+		if(cnt>0) 
+			return true;
+		else 
+			return false;
+	} catch (Exception e) {
+		return false;
+	} finally {
+		close();
+	}
+}
+
+public boolean updateStu(Stu stu) {
+	conn = getConnectionn();
+	try {
+		pStat = conn.prepareStatement("UPDATE `students` SET `stu_name`=?,`stu_password`=?,`stu_major`=?,`stu_grade`=?,`stu_class`=? where `stu_id`=?");
+		pStat.setInt(6, stu.getStu_id());
+		pStat.setString(1, stu.getStu_name());
+		pStat.setString(2, stu.getStu_password());
+		pStat.setString(3, stu.getStu_major());
+		pStat.setInt(4, stu.getStu_grade());
+		pStat.setInt(5, stu.getStu_class());
+		int cnt= pStat.executeUpdate();	
+		if(cnt>0) 
+			return true;
+		else 
+			return false;
+	} catch (Exception e) {
+		return false;
+	} finally {
+		close();
+	}
+}
+
+
+public Stu getStuById(int id) {
+	conn = getConnectionn();
+	try {
+		pStat = conn.prepareStatement("select * from students where stu_id=?");
+		pStat.setInt(1, id);
+		rs= pStat.executeQuery();	
+		if(rs.next()) {
+			Stu stu=new Stu(
+					rs.getInt("stu_id"),
+					rs.getString("stu_name"),
+					rs.getString("stu_password"),
+					rs.getString("stu_major"),
+					rs.getInt("stu_grade"),
+					rs.getInt("stu_class")
+					);				
+			return stu;
+		}
+		else 
+			return null;
+	} catch (Exception e) {
+		return null;
+	} finally {
+		close();
+	}
+}
+}

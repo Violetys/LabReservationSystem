@@ -7,18 +7,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.Stu;
+import beans.Tea;
 import dao.StuDAO;
 import dao.TeaDAO;
+
 /**
- * Servlet implementation class DeleteServlet
+ * Servlet implementation class EditUserServlet
  */
-public class DeleteServlet extends HttpServlet {
+public class EditServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DeleteServlet() {
+    public EditServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,26 +32,28 @@ public class DeleteServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
     	response.setContentType("text/html;charset=utf-8");
-    	String st_flag=request.getParameter("st_flag");
+		HttpSession session=request.getSession();
+		String st_flag=request.getParameter("st_flag");
 		if(st_flag.equals("stu")) {
 			String stu_id=request.getParameter("stu_id");
-			boolean flag=new StuDAO().delStuById(Integer.parseInt(stu_id));
-			if(flag) {
-				HttpSession session = request.getSession();
-				String admin_id=(String)session.getAttribute("admin_id");
-				String admin_password=(String)session.getAttribute("admin_password");
-				response.sendRedirect("AdminServlet?"+"id="+admin_id+"&password="+admin_password);
+			Stu stu=new StuDAO().getStuById(Integer.parseInt(stu_id));
+			if(stu!=null) {
+				session.setAttribute("stu", stu);
+				response.sendRedirect("stuedit.jsp");
 			}
 		}
 		else if(st_flag.equals("tea")) {
 			String tea_id=request.getParameter("tea_id");
-			boolean flag=new TeaDAO().delTeaById(Integer.parseInt(tea_id));
-			if(flag) {
-				HttpSession session = request.getSession();
-				String admin_id=(String)session.getAttribute("admin_id");
-				String admin_password=(String)session.getAttribute("admin_password");
-				response.sendRedirect("AdminServlet?"+"id="+admin_id+"&password="+admin_password);
+			Tea tea=new TeaDAO().getTeaById(Integer.parseInt(tea_id));
+			if(tea!=null) {
+				session.setAttribute("tea", tea);
+				response.sendRedirect("teaedit.jsp");
 			}
 		}
-}
+		else {
+			
+		}
+		}
+
+
 }

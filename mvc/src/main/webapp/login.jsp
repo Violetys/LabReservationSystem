@@ -14,11 +14,11 @@ if( errMsg!=null ) { %>
 <div style="color:red;"><%=errMsg %></div>
 <% session.removeAttribute("err");
 } %>
-<form action="LoginServlet">
-用户名<input type="text" name="username"><br/>
+<form action="AdminServlet">
+id<input type="text" name="id"><br/>
 密码<input type="password" name="password"><br/>
 <input type="submit" value="登录">
-<input type="reset" value="重填mmmmmmm">
+<input type="reset" value="重填">
 </form> 
 
 </body>

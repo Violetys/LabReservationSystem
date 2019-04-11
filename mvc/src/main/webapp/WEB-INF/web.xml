@@ -11,10 +11,22 @@
   	<servlet-class>servlets.RegServlet</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>LoginServlet</servlet-name>
-  	<display-name>LoginServlet</display-name>
+  	<servlet-name>StuorderServlet</servlet-name>
+  	<display-name>StuorderServlet</display-name>
   	<description></description>
-  	<servlet-class>servlets.LoginServlet</servlet-class>
+  	<servlet-class>servlets.StuorderServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>StuLoginServlet</servlet-name>
+  	<display-name>StuLoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlets.StuLoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>TeaLoginServlet</servlet-name>
+  	<display-name>TeaLoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlets.TeaLoginServlet</servlet-class>
   </servlet>
   <servlet>
   	<servlet-name>AdminServlet</servlet-name>
@@ -29,24 +41,70 @@
   	<servlet-class>servlets.DeleteServlet</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>EditUserServlet</servlet-name>
-  	<display-name>EditUserServlet</display-name>
+  	<servlet-name>EditServlet</servlet-name>
+  	<display-name>EditServlet</display-name>
   	<description></description>
-  	<servlet-class>servlets.EditUserServlet</servlet-class>
+  	<servlet-class>servlets.EditServlet</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>SaveUserServlet</servlet-name>
-  	<display-name>SaveUserServlet</display-name>
+  	<servlet-name>SaveServlet</servlet-name>
+  	<display-name>SaveServlet</display-name>
   	<description></description>
-  	<servlet-class>servlets.SaveUserServlet</servlet-class>
+  	<servlet-class>servlets.SaveServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>OrderableServlet</servlet-name>
+  	<display-name>OrderableServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlets.OrderableServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>EqstateServlet</servlet-name>
+  	<display-name>EqstateServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlets.EqstateServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>LabstateServlet</servlet-name>
+  	<display-name>LabstateServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlets.LabstateServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>TeaorderServlet</servlet-name>
+  	<display-name>TeaorderServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlets.TeaorderServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AlertrServlet</servlet-name>
+  	<display-name>AlertServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlets.AlertServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>DeleteorderServlet</servlet-name>
+  	<display-name>DeleteorderServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlets.DeleteorderServlet</servlet-class>
+  </servlet>
+   <servlet>
+  	<servlet-name>OrderedServlet</servlet-name>
+  	<display-name>OrderedServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlets.OrderedServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>RegServlet</servlet-name>
   	<url-pattern>/RegServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>LoginServlet</servlet-name>
-  	<url-pattern>/LoginServlet</url-pattern>
+  	<servlet-name>StuLoginServlet</servlet-name>
+  	<url-pattern>/StuLoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TeaLoginServlet</servlet-name>
+  	<url-pattern>/TeaLoginServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>AdminServlet</servlet-name>
@@ -57,11 +115,43 @@
   	<url-pattern>/DeleteServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>EditUserServlet</servlet-name>
-  	<url-pattern>/EditUserServlet</url-pattern>
+  	<servlet-name>EditServlet</servlet-name>
+  	<url-pattern>/EditServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>SaveUserServlet</servlet-name>
-  	<url-pattern>/SaveUserServlet</url-pattern>
+  	<servlet-name>SaveServlet</servlet-name>
+  	<url-pattern>/SaveServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>StuorderServlet</servlet-name>
+  	<url-pattern>/StuorderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OrderableServlet</servlet-name>
+  	<url-pattern>/OrderableServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>EqstateServlet</servlet-name>
+  	<url-pattern>/EqstateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LabstateServlet</servlet-name>
+  	<url-pattern>/LabstateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>TeaorderServlet</servlet-name>
+  	<url-pattern>/TeaorderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AlertrServlet</servlet-name>
+  	<url-pattern>/AlertrServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DeleteorderServlet</servlet-name>
+  	<url-pattern>/DeleteorderServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OrderedServlet</servlet-name>
+  	<url-pattern>/OrderedServlet</url-pattern>
   </servlet-mapping>
 </web-app>
