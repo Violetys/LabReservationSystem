@@ -1,16 +1,16 @@
 package beans;
 
-public class Stu {
+public class Stu {		//学生类
 
-	int stu_id;
-	String stu_name;
-	String stu_password;
-	String stu_major;
-	int stu_grade;
-	int stu_class;
+	int stu_id;		//学号
+	String stu_name;		//姓名
+	String stu_password;	//密码
+	String stu_major;		//专业
+	int stu_grade;		//年级
+	int stu_class;		//班级	
 	
-	public Stu() {
-		this.stu_id = 0;
+	public Stu() {		//构造函数
+		this.stu_id = 0;	
 		this.stu_name = "";
 		this.stu_password = "";
 		this.stu_major="";
@@ -18,7 +18,7 @@ public class Stu {
 		this.stu_class=0;
 	}
 	
-	public Stu(int id, String name, String password, String major, int grade, int class1) {
+	public Stu(int id, String name, String password, String major, int grade, int class1) {//...
 		this.stu_id = id;
 		this.stu_name = name;
 		this.stu_password = password;

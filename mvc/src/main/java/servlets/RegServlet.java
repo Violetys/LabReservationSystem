@@ -29,7 +29,7 @@ public class RegServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     public void service(HttpServletRequest request, HttpServletResponse response)
-    		throws ServletException, IOException {
+    		throws ServletException, IOException {					//管理员注册学生教师信息
     		response.setContentType("text/html;charset=utf-8");
     		String st_flag=request.getParameter("st_flag");
     		if(st_flag.equals("stu")) {

@@ -8,7 +8,7 @@
 </head>
 <body bgcolor="pink">
 <br><br><br><br><br><br><br><br><br><br><br><br><br>
-<center>学生注册
+<center>教师注册
 <%
 String errMsg=(String)session.getAttribute("err");
 if( errMsg!=null ) { %>
@@ -16,13 +16,10 @@ if( errMsg!=null ) { %>
 <% session.removeAttribute("err");
 }%>
 <form action="RegServlet">
-学号&nbsp;<input onkeyup="value=value.replace(/[^\d]/g,'')" maxlength="9" name="stu_id"><br/>
-密码&nbsp;<input type="password" name="stu_password"><br/>
-名字&nbsp;<input type="text" name="stu_name"><br/>
-专业&nbsp;<input type="text" name="stu_major"><br/>
-年级&nbsp;<input onkeyup="value=value.replace(/[^\d]/g,'')" maxlength="9" name="stu_grade"><br/>
-班级&nbsp;<input onkeyup="value=value.replace(/[^\d]/g,'')" maxlength="9" name="stu_class"><br/>
-<input name="st_flag" type="hidden" value="stu" />
+教师号<input onkeyup="value=value.replace(/[^\d]/g,'')" maxlength="9" name="tea_id"><br/>
+密码&nbsp;&nbsp;&nbsp;<input type="password" name="tea_password"><br/>
+姓名&nbsp;&nbsp;&nbsp;<input type="text" name="tea_name"><br/>
+<input name="st_flag" type="hidden" value="tea" />
 <input type="submit" value="注册" >
 <input type="reset" value="重填">
 </form> 

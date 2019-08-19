@@ -30,7 +30,7 @@ public class SaveServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
     protected void service(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+			throws ServletException, IOException {			//管理员保存修改信息
     	response.setContentType("text/html;charset=utf-8");
     	String st_flag=request.getParameter("st_flag");
 		if(st_flag.equals("stu")) {

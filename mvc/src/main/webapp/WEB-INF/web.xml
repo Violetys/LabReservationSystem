@@ -77,7 +77,7 @@
   	<servlet-class>servlets.TeaorderServlet</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>AlertrServlet</servlet-name>
+  	<servlet-name>AlertServlet</servlet-name>
   	<display-name>AlertServlet</display-name>
   	<description></description>
   	<servlet-class>servlets.AlertServlet</servlet-class>
@@ -94,6 +94,12 @@
   	<description></description>
   	<servlet-class>servlets.OrderedServlet</servlet-class>
   </servlet>
+   <servlet>
+   	<servlet-name>HelloWorld</servlet-name>
+   	<display-name>HelloWorld</display-name>
+   	<description></description>
+   	<servlet-class>servlets.HelloWorld</servlet-class>
+   </servlet>
   <servlet-mapping>
   	<servlet-name>RegServlet</servlet-name>
   	<url-pattern>/RegServlet</url-pattern>
@@ -143,8 +149,8 @@
   	<url-pattern>/TeaorderServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>AlertrServlet</servlet-name>
-  	<url-pattern>/AlertrServlet</url-pattern>
+  	<servlet-name>AlertServlet</servlet-name>
+  	<url-pattern>/AlertServlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>DeleteorderServlet</servlet-name>
@@ -153,5 +159,9 @@
   <servlet-mapping>
   	<servlet-name>OrderedServlet</servlet-name>
   	<url-pattern>/OrderedServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>HelloWorld</servlet-name>
+  	<url-pattern>/HelloWorld</url-pattern>
   </servlet-mapping>
 </web-app>

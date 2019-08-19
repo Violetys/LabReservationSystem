@@ -30,9 +30,9 @@ public class DeleteServlet extends HttpServlet {
 			throws ServletException, IOException {
     	response.setContentType("text/html;charset=utf-8");
     	String st_flag=request.getParameter("st_flag");
-		if(st_flag.equals("stu")) {
+		if(st_flag.equals("stu")) {//删除学生信息
 			String stu_id=request.getParameter("stu_id");
-			boolean flag=new StuDAO().delStuById(Integer.parseInt(stu_id));
+			boolean flag=new StuDAO().delStuById(Integer.parseInt(stu_id));//实例化，用其中函数
 			if(flag) {
 				HttpSession session = request.getSession();
 				String admin_id=(String)session.getAttribute("admin_id");
@@ -40,9 +40,9 @@ public class DeleteServlet extends HttpServlet {
 				response.sendRedirect("AdminServlet?"+"id="+admin_id+"&password="+admin_password);
 			}
 		}
-		else if(st_flag.equals("tea")) {
+		else if(st_flag.equals("tea")) {//删除教师信息
 			String tea_id=request.getParameter("tea_id");
-			boolean flag=new TeaDAO().delTeaById(Integer.parseInt(tea_id));
+			boolean flag=new TeaDAO().delTeaById(Integer.parseInt(tea_id));//实例化，用其中函数
 			if(flag) {
 				HttpSession session = request.getSession();
 				String admin_id=(String)session.getAttribute("admin_id");

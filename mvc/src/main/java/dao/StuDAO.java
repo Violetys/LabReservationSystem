@@ -2,7 +2,7 @@ package dao;
 import java.sql.*;
 import java.util.*;
 import beans.Stu;
-public class StuDAO {
+public class StuDAO {   	//学生DAO
 public static final String DRIVER="org.gjt.mm.mysql.Driver";
 public static final String DBURL="jdbc:mysql://localhost:3306/lab";
 public static final String DBUSER="root";
@@ -26,11 +26,11 @@ if( pStat!=null ) pStat.close();
 if( conn!=null ) conn.close();
 }catch(Exception e){ e.printStackTrace(); }
 } //end close
-public boolean isStuidExists(int id) {
+public boolean isStuidExists(int id) {			//查询学生是否存在
 	conn=getConnectionn();
 	try {
 	pStat =conn.prepareStatement("select * from students where stu_id=?");
-	pStat.setInt(1, id);
+	pStat.setInt(1, id);			//设置？的值
 	rs=pStat.executeQuery();
 	if( rs.next() ) return true;
 	else return false;
@@ -38,12 +38,12 @@ public boolean isStuidExists(int id) {
 	finally{ close(); }
 } //end isUsernameExists
 
-public boolean findStu(int stu_id, String stu_password){
+public boolean findStu(int stu_id, String stu_password){		//验证学号密码
 	conn=getConnectionn();
 	try {
 	pStat =conn.prepareStatement("select * from students where stu_id=? and stu_password=?");
-	pStat.setInt(1, stu_id);
-	pStat.setString(2, stu_password);
+	pStat.setInt(1, stu_id);		//...
+	pStat.setString(2, stu_password);		//...
 	rs=pStat.executeQuery();
 	if( rs.next() ) return true;
 	else return false;
@@ -54,12 +54,12 @@ public boolean findStu(int stu_id, String stu_password){
 	}
 } //end findUser
 
-public boolean addStu(Stu stu) {
+public boolean addStu(Stu stu) {		//添加学生
 	conn=getConnectionn();
 	try {
 	pStat=conn.prepareStatement("insert into students values(?,?,?,?,?,?)");
-	pStat.setInt(1, stu.getStu_id());
-	pStat.setString(2, stu.getStu_name());
+	pStat.setInt(1, stu.getStu_id());			//设置？的值
+	pStat.setString(2, stu.getStu_name());			//...
 	pStat.setString(3, stu.getStu_password());
 	pStat.setString(4, stu.getStu_major());
 	pStat.setInt(5, stu.getStu_grade());
@@ -74,7 +74,7 @@ public boolean addStu(Stu stu) {
 	}
 	} //end add
 
-public List<Stu> getAllStus() {
+public List<Stu> getAllStus() {			//查询所有学生信息，注释与之前类似...
 	List<Stu> tmp_list = new ArrayList<Stu>();    // 结果集存放在List集合中
 	conn = getConnectionn();
 	try {
@@ -98,7 +98,7 @@ public List<Stu> getAllStus() {
 }
 
 
-public boolean delStuById(int id) {
+public boolean delStuById(int id) {		//根据学号删除学生信息
 	conn = getConnectionn();
 	try {
 		pStat = conn.prepareStatement("delete from students where stu_id=?");
@@ -115,7 +115,7 @@ public boolean delStuById(int id) {
 	}
 }
 
-public boolean updateStu(Stu stu) {
+public boolean updateStu(Stu stu) {				//更新学生信息，形参为学生对象
 	conn = getConnectionn();
 	try {
 		pStat = conn.prepareStatement("UPDATE `students` SET `stu_name`=?,`stu_password`=?,`stu_major`=?,`stu_grade`=?,`stu_class`=? where `stu_id`=?");
@@ -138,7 +138,7 @@ public boolean updateStu(Stu stu) {
 }
 
 
-public Stu getStuById(int id) {
+public Stu getStuById(int id) {			//根据学号查询学生信息，返回值为学生对象
 	conn = getConnectionn();
 	try {
 		pStat = conn.prepareStatement("select * from students where stu_id=?");
@@ -153,7 +153,7 @@ public Stu getStuById(int id) {
 					rs.getInt("stu_grade"),
 					rs.getInt("stu_class")
 					);				
-			return stu;
+			return stu;			//返回
 		}
 		else 
 			return null;
