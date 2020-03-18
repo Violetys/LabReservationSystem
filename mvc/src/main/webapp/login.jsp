@@ -5,13 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 <style type="text/css">    
      body{    
         background-image: url(http://img.pptjia.com/image/20180117/767f4b74a8d7b453b149430ee364c9ce.jpg);    
         background-size:cover;  
      }    
  </style>
+
 
 </head>
 <body bgcolor="pink">
@@ -31,7 +33,11 @@ id&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="id"><br/>
 <input type="submit" value="登录">
 <input type="reset" value="重填">
 </form> 
+
+<button onclick="location.href='http://localhost:8080/mvc/index.jsp'" type="button"> 人脸识别登录 </button>
 </center>
+
+
 </div>
 </body>
 </html>

@@ -100,6 +100,12 @@
    	<description></description>
    	<servlet-class>servlets.HelloWorld</servlet-class>
    </servlet>
+   <servlet>
+  	<servlet-name>FaceLoginServlet</servlet-name>
+  	<display-name>FaceLoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>servlets.FaceLoginServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>RegServlet</servlet-name>
   	<url-pattern>/RegServlet</url-pattern>
@@ -163,5 +169,9 @@
   <servlet-mapping>
   	<servlet-name>HelloWorld</servlet-name>
   	<url-pattern>/HelloWorld</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>FaceLoginServlet</servlet-name>
+  	<url-pattern>/FaceLoginServlet</url-pattern>
   </servlet-mapping>
 </web-app>
