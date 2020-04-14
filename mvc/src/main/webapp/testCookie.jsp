@@ -17,43 +17,48 @@
 
 </head>
 <body bgcolor="pink">
+
 <%
 Cookie cookies[]=null;
-if((cookies=request.getCookies())!=null){//读出用户硬盘上的Cookie，并将所有的Cookie放到一个cookie对象数组里面	
-	Cookie sCookie=null;
-	String svalue=null;
-	String sname=null;
-	for(int i=0;i<cookies.length;i++){ //用一个循环语句遍历刚才建立的Cookie对象数组
-		sCookie=cookies[i]; //取出数组中的一个Cookie对象
-		sname=sCookie.getName(); //取得这个Cookie的名字
-		svalue=sCookie.getValue(); //取得这个Cookie的内容
-		if("xys.com_user_id".equals(sname)){
-			System.out.println(sname+"  "+svalue);
-			request.setAttribute("token", svalue);
+if((cookies=request.getCookies())!=null){//读出Cookie，并将所有的Cookie放到一个cookie对象数组里面	
+	Cookie Cookie=null;
+	String value=null;
+	String name=null;
+	for(int i=0;i<cookies.length;i++){ //用一个循环遍历Cookie对象数组
+		Cookie=cookies[i]; //取出数组中的一个Cookie对象
+		name=Cookie.getName(); //取得这个Cookie的名字
+		value=Cookie.getValue(); //取得这个Cookie的内容
+		if("xys.com_user_id".equals(name)){		//判断有无此项目的cookie
+			System.out.println(name+"  "+value);
+			request.setAttribute("token", value);
 			request.getRequestDispatcher("RedisAutoLogin").forward(request, response);
 		}
-		//System.out.println(sname+"  "+svalue);
+		//System.out.println(name+"  "+value);
 }
 }
 %>
 
+
 <%
 String errMsg=(String)session.getAttribute("err");
 if( errMsg!=null ) { %>
+
 <div style="color:red;"><%=errMsg %></div>
+
 <% session.removeAttribute("err");
 } %>
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <div margin:300px;>
-<center>管理员登录
-<form action="AdminServlet" method="post">
-id&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="id"><br/>
-密码<input type="password" name="password"><br/>
+<center>登录
+<form action="testCookie" method="post">
+id&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="stu_id"><br/>
+密码<input type="password" name="stu_password"><br/>
 <input type="submit" value="登录">
 <input type="reset" value="重填">
 </form> 
 
-<button onclick="location.href='http://localhost:8080/mvc/index.jsp'" type="button"> 人脸识别登录 </button>
+
 </center>
 
 

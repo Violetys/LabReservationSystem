@@ -1,8 +1,12 @@
 package beans;
 
-public class Stu {		//学生类
+public class Stu{		//学生类
 
-	int stu_id;		//学号
+	/**
+	 * 
+	 */
+	
+	int stu_id;		//学号s
 	String stu_name;		//姓名
 	String stu_password;	//密码
 	String stu_major;		//专业

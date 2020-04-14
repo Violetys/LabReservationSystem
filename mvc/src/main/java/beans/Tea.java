@@ -1,7 +1,13 @@
 package beans;
 
-public class Tea {		//教师类
+import java.io.Serializable;
 
+public class Tea implements Serializable{		//教师类
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int tea_id;		//教师号
 	String tea_name;	//姓名
 	String tea_password;	//密码

@@ -118,6 +118,18 @@
   	<description></description>
   	<servlet-class>servlets.testserver</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>testCookie</servlet-name>
+  	<display-name>testCookie</display-name>
+  	<description></description>
+  	<servlet-class>servlets.testCookie</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RedisAutoLogin</servlet-name>
+  	<display-name>RedisAutoLogin</display-name>
+  	<description></description>
+  	<servlet-class>servlets.RedisAutoLogin</servlet-class>
+  </servlet>
   
   
   
@@ -198,6 +210,14 @@
   <servlet-mapping>
   	<servlet-name>testsocket</servlet-name>
   	<url-pattern>/testsocket</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>testCookie</servlet-name>
+  	<url-pattern>/testCookie</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RedisAutoLogin</servlet-name>
+  	<url-pattern>/RedisAutoLogin</url-pattern>
   </servlet-mapping>
   
 </web-app>

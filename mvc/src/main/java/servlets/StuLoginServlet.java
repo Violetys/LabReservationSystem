@@ -36,13 +36,15 @@ public class StuLoginServlet extends HttpServlet {
     		StuDAO studao=new StuDAO();
     		Stu stu=new Stu();
     		boolean flag=studao.findStu(stu_id, stu_password);
+    		System.out.println(flag);
     		if( flag ) {
-    		stu=studao.getStuById(stu_id);
-    		jsonObject.put("stuinfo", stu);
-    		jsonObject.put("week", 3);
+	    		stu=new StuDAO().getStuById(stu_id);
+	    		System.out.println(stu);
+	    		jsonObject.put("stuinfo", stu);
+	    		jsonObject.put("week", 3);
     		}
     		else{
-    		jsonObject.put("rs", "用户名或密码错误，请重新输入");
+    			jsonObject.put("rs", "用户名或密码错误，请重新输入");
     		}
     		response.getWriter().print(jsonObject);		
     } 
